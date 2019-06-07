@@ -1,3 +1,4 @@
+import java.time.Duration;
 import java.util.List;
 
 public class MusicApp {
@@ -10,7 +11,13 @@ public class MusicApp {
         this.library = library;
     }
 
-    protected String normalize(String name){
+    public static String normalizeName(String name){
         return name.replace(" ", "_");
+    }
+
+    public static String formatOutput(Duration d) {
+        int minutes = d.toMinutesPart();
+        int seconds = d.toSecondsPart();
+        return String.format("%02d:%02d", minutes, seconds);
     }
 }

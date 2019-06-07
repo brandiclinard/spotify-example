@@ -3,12 +3,6 @@ import java.util.*;
 
 public class RunApp {
 
-    public static String formatOutput(Duration d) {
-        int minutes = d.toMinutesPart();
-        int seconds = d.toSecondsPart();
-        return String.format("%02d:%02d", minutes, seconds);
-    }
-
     public static List<User> seedUsers() {
         int initialId = 1;
         return new ArrayList<>(Arrays.asList(

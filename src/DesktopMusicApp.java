@@ -28,14 +28,14 @@ public class DesktopMusicApp extends MusicApp implements Playable {
         System.out.println("Title = " + song.getName());
 
         // 3. return url to stream
-        return "//streamer/songs/" + super.normalize(song.getName()) + ".mp3";
+        return "//streamer/songs/" + MusicApp.normalizeName(song.getName()) + ".mp3";
     }
 
     // Exposure to Duration class and time handling
     @Override
     public void pause(Song song) {
         // pauses the song
-        System.out.println(song.getName() +" was paused at = " + song.getLength().toMinutesPart()+":"+ song.getLength().toSecondsPart());
+        System.out.println(song.getName() +" was paused at = " + MusicApp.formatOutput(song.getLength()));
     }
 
 
