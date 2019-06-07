@@ -1,6 +1,6 @@
 
 import java.io.IOException;
-import java.sql.Date;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -11,35 +11,19 @@ public class DesktopMusicApp extends MusicApp implements Playable {
 
     public DesktopMusicApp(double version, List<Song> playlist) {
         super(version, playlist);
-//        this.log = log;
-        System.out.println(" constructor now = " + now);
         this.log = new HashMap<>();
         this.log.put(now, 0);
     }
 
-    public HashMap<Date, Integer> getLog() {
-        return log;
-    }
-
-
-
-
     @Override
     public String play(Song song) {
 //        1 display the song info
-
-        System.out.println("now = " + now);
         this.log.put(now, this.log.get(now)+1);
+
+//        this.sing(song);
 
         // 2 Updating the song info UI
         System.out.println("Title = " + song.getName());
-
-        try {
-            Process process = Runtime.getRuntime().exec(
-                    "say -r 150  "+ song.getLyrics(), null, null);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
         return "//streamer/songs/" + super.normalize(song.getName()) + ".mp3";
     }
@@ -54,5 +38,18 @@ public class DesktopMusicApp extends MusicApp implements Playable {
     public void stop() {
         // stops the song
         System.out.println("stops the song");
+    }
+
+    public void sing(Song song){
+        try {
+            Process process = Runtime.getRuntime().exec(
+                    "say -r 150  "+ song.getLyrics());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void printLog(){
+
     }
 }
