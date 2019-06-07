@@ -66,8 +66,6 @@ public class RunApp {
             desktopMusicApp.pause(song);
         }
 
-//        System.out.println(desktopMusicApp.play(seedSongs().get(seedSongs().size()-1)));
-
         desktopMusicApp.stop();
 
     }

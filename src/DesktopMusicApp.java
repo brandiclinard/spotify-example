@@ -38,6 +38,7 @@ public class DesktopMusicApp extends MusicApp implements Playable {
     public void stop() {
         // stops the song
         System.out.println("stops the song");
+        this.printLog();
     }
 
     public void sing(Song song){
@@ -50,6 +51,8 @@ public class DesktopMusicApp extends MusicApp implements Playable {
     }
 
     public void printLog(){
-
+        for (Date entry: this.log.keySet()) {
+            System.out.println(entry + " " + this.log.get(entry));
+        }
     }
 }
