@@ -2,18 +2,20 @@
 import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 
 public class DesktopMusicApp extends MusicApp implements Playable {
 
     private HashMap<Date, Integer> log;
+    private String OS;
     private Date today = new Date(System.currentTimeMillis());
 
-    public DesktopMusicApp(double version, List<Song> library) {
-        super(version, library);
+    public DesktopMusicApp(double version, String OS) {
+        super(version);
+        this.OS = OS;
         // Initializes the HashMap
         this.log = new HashMap<>();
         this.log.put(today, 0);
+        Seeder.seedLog();
     }
 
     // OOP implemented
@@ -22,7 +24,9 @@ public class DesktopMusicApp extends MusicApp implements Playable {
         // 1. display the song info
         this.log.put(today, this.log.get(today)+1);
 
-//        this.sing(song);
+        if(OS.equals("MacOS")){
+            this.sing(song);
+        }
 
         // 2. Updating the song info UI
         System.out.println("Title = " + song.getName());
