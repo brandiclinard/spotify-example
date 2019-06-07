@@ -24,7 +24,7 @@ public class WebMusicApp extends MusicApp implements Playable {
     }
 
     @Override
-    public void pause() {
+    public void pause(Song song) {
 
     }
 

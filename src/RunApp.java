@@ -21,11 +21,12 @@ public class RunApp {
 
     public static List<Song> seedSongs() {
         int initialId = 1;
+
         return new ArrayList<>(Arrays.asList(
                 new Song((long) initialId++, "Song 1", Duration.ofSeconds(300), "Yadda yadda", new String[]{"Artist 1", "Artist 2"}),
-                new Song((long) initialId++, "Song 1", Duration.ofSeconds(124), "Yadda yadda", new String[]{"Artist 1", "Artist 2"}),
-                new Song((long) initialId++, "Song 1", Duration.ofSeconds(64), "Yadda yadda", new String[]{"Artist 1", "Artist 2"}),
-                new Song((long) initialId++, "Song 1", Duration.ofSeconds(344), "Yadda yadda", new String[]{"Artist 1", "Artist 2"})
+                new Song((long) initialId++, "Song 2", Duration.ofSeconds(124), "Yadda yadda", new String[]{"Blur", "Artist 2"}),
+                new Song((long) initialId++, "Song 23234", Duration.ofSeconds(64), "Yadda yadda", new String[]{"Artist 1", "Artist 2"}),
+                new Song((long) initialId++, "I'm like a bird", Duration.ofSeconds(344), "Yadda yadda", new String[]{"Nelly Furtado"})
         ));
     }
 
@@ -55,6 +56,13 @@ public class RunApp {
     }
 
     public static void main(String[] args) {
+        DesktopMusicApp desktopMusicApp = new DesktopMusicApp(2.3,null);
+
+        for (Song song: seedSongs()) {
+            System.out.println(desktopMusicApp.play(song));
+        }
+
+
 
     }
 

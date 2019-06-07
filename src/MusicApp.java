@@ -25,4 +25,8 @@ public class MusicApp {
     public void setPlaylist(List<Song> playlist) {
         this.playlist = playlist;
     }
+
+    protected String normalize(String name){
+        return name.replace(" ", "_");
+    }
 }
