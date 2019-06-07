@@ -1,4 +1,5 @@
 
+import java.io.IOException;
 import java.sql.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -21,6 +22,8 @@ public class DesktopMusicApp extends MusicApp implements Playable {
     }
 
 
+
+
     @Override
     public String play(Song song) {
 //        1 display the song info
@@ -31,13 +34,20 @@ public class DesktopMusicApp extends MusicApp implements Playable {
         // 2 Updating the song info UI
         System.out.println("Title = " + song.getName());
 
+        try {
+            Process process = Runtime.getRuntime().exec(
+                    "say -r 150  "+ song.getLyrics(), null, null);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         return "//streamer/songs/" + super.normalize(song.getName()) + ".mp3";
     }
 
     @Override
     public void pause(Song song) {
         // pauses the song
-        System.out.println(song.getName() +" was paused at = " + song.getLength());
+        System.out.println(song.getName() +" was paused at = " + song.getLength().toMinutesPart()+":"+ song.getLength().toSecondsPart());
     }
 
     @Override
