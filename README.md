@@ -4,7 +4,7 @@ Classes
 
 - MusicApp
 	- Decimal version
-	- ArrayList<Song> playlist
+	- ArrayList<Song> library
 
 - Desktop implements Player() interface
 	- HashMap<Date, Integer> log

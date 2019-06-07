@@ -9,8 +9,8 @@ public class DesktopMusicApp extends MusicApp implements Playable {
     private HashMap<Date, Integer> log;
     private Date today = new Date(System.currentTimeMillis());
 
-    public DesktopMusicApp(double version, List<Song> playlist) {
-        super(version, playlist);
+    public DesktopMusicApp(double version, List<Song> library) {
+        super(version, library);
         // Initializes the HashMap
         this.log = new HashMap<>();
         this.log.put(today, 0);
@@ -46,10 +46,10 @@ public class DesktopMusicApp extends MusicApp implements Playable {
         this.printLog();
     }
 
-    // Just for fun, sings the lyrics
+    // Just for fun, it sings the lyrics
     public void sing(Song song){
         try {
-            Process process = Runtime.getRuntime().exec(
+            Runtime.getRuntime().exec(
                     "say -r 150  "+ song.getLyrics());
         } catch (IOException e) {
             e.printStackTrace();
