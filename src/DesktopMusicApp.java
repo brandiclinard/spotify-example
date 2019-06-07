@@ -24,14 +24,15 @@ public class DesktopMusicApp extends MusicApp implements Playable {
         // 1. display the song info
         this.log.put(today, this.log.get(today)+1);
 
+        // 2. it sings if mac is used
         if(OS.equals("MacOS")){
             this.sing(song);
         }
 
-        // 2. Updating the song info UI
+        // 3. Updating the song info UI
         System.out.println("Title = " + song.getName());
 
-        // 3. return url to stream
+        // 4. return url to stream
         return "//streamer/songs/" + MusicApp.normalizeName(song.getName()) + ".mp3";
     }
 

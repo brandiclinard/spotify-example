@@ -4,11 +4,10 @@ import java.util.*;
 public class MusicApp {
 
     protected double version;
-    protected List<Song> library;
+    protected static List<Song> library = Seeder.seedSongs();
 
     public MusicApp(double version) {
         this.version = version;
-        this.library = Seeder.seedSongs();
     }
 
     public static String normalizeName(String name){

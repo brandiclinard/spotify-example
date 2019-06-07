@@ -5,8 +5,8 @@ public class WebMusicApp extends MusicApp implements Playable {
 
     private HashMap<Song, User> likes;
 
-    public WebMusicApp(double version, List<Song> playlist, HashMap<Song, User> likes) {
-        super(version, playlist);
+    public WebMusicApp(double version, HashMap<Song, User> likes) {
+        super(version);
         this.likes = likes;
     }
 
