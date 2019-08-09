@@ -1,14 +1,20 @@
+import java.util.Arrays;
 
-import java.io.IOException;
-import java.util.Date;
-import java.util.HashMap;
-
-public class Desktop extends MusicApp {
+public class Desktop extends MusicApp  implements MusicPlayer{
     //--BETELGEUSE CLASS NOTES BELOW:
 
-    public Desktop(double version){
+    public Desktop(String version){
         super(version); // this is how we pull from the extended class to get the methods set by the parent and utilize by this child.
     }
+
+    @Override
+    public String play(Song song) {
+//        return "Playing: " + song.getName() + " by " + Arrays.toString(song.getArtists());// using the getting because the properties of song are private. had to add arrays.tostring to artists in order to get the artist name out of the array
+        //--below is the fix to show it nicely to the user without the array brackets
+
+        return "Playing: " + song.getName() + " by " + song.displayArtistsAsText();
+    }
+
 
 //-- PREVIOUS CLASS NOTES BELOW:
 //    private HashMap<Date, Integer> log;

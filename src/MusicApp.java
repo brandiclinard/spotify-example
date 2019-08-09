@@ -1,13 +1,12 @@
-import java.time.Duration;
 import java.util.*;
 
 public class MusicApp {
     //-- BETELGEUSE NOTES BELOW:
-    double version;
+    String version;
     ArrayList<Song> library;
 
 
-    public MusicApp(double version) {
+    public MusicApp(String version) {
         this.version = version;
         this.library = LibraryService.updateLibrary();
     }

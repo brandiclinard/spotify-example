@@ -56,6 +56,14 @@ public class Song {
         this.artists = artists;
     }
 
+    public String displayArtistsAsText(){
+        String names = "";
+        for(String artist : this.getArtists()){
+            names += artist + ", ";
+        }
+        return names;
+    }
+
     //-- PREVIOUS CLASS NOTES BELOW:
 //    private long id;
 //    private String name;
