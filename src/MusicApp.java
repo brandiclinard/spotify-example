@@ -2,21 +2,35 @@ import java.time.Duration;
 import java.util.*;
 
 public class MusicApp {
+    //-- BETELGEUSE NOTES BELOW:
+    double version;
+    ArrayList<Song> library;
 
-    protected double version;
-    protected static List<Song> library = Seeder.seedSongs();
 
-    public MusicApp(double version) {
+    public MusicApp(double version, ArrayList<Song> library) {
         this.version = version;
+        this.library = LibraryService.updateLibrary();
     }
 
-    public static String normalizeName(String name){
-        return name.replace(" ", "_");
-    }
 
-    public static String formatOutput(Duration d) {
-        int minutes = d.toMinutesPart();
-        int seconds = d.toSecondsPart();
-        return String.format("%02d:%02d", minutes, seconds);
-    }
+
+
+
+    //-- PREVIOUS CLASS NOTES BELOW:
+//    protected double version;
+//    protected static List<Song> library = Seeder.seedSongs();
+//
+//    public MusicApp(double version) {
+//        this.version = version;
+//    }
+//
+//    public static String normalizeName(String name){
+//        return name.replace(" ", "_");
+//    }
+//
+//    public static String formatOutput(Duration d) {
+//        int minutes = d.toMinutesPart();
+//        int seconds = d.toSecondsPart();
+//        return String.format("%02d:%02d", minutes, seconds);
+//    }
 }
