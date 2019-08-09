@@ -16,6 +16,7 @@ public class App {
             System.out.println("myApp.play(song) = " + myApp.play(song));
         }
 
+        myApp.printLog();
     }
 }
     
